@@ -1,0 +1,17 @@
+---
+Name: allinone-extensions
+---
+SiteConfig:
+    extensions:
+        ['AllInOnePageSiteConfig']
+SiteTree:
+    extensions:
+        ['AllInOnePageExtension']
+---
+Name: modelascontrollerroutes
+After: cms/routes#modelascontrollerroutes
+---
+Director:
+    rules:
+        '': 'AllInOneRootController'
+        '$URLSegment//$Action/$ID/$OtherID': 'AllInOneModelAsController'

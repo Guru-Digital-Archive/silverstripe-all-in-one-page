@@ -1,0 +1,27 @@
+{
+    "name": "gdm-silverstripe-silverstripe-all-in-one-page",
+    "title": "Silverstripe all in one page",
+    "description": "Shows all top level pages in one long scrolling page",
+    "keywords": [
+    ],
+    "version": "0.1",
+    "author": {
+        "name": "Corey Sewell - Guru Digital Media",
+        "email": "corey@gdmedia.tv"
+    },
+    "maintainers": [
+        {
+            "name": "Corey Sewell - Guru Digital Media",
+            "email": "corey@gdmedia.tv"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.4"
+    },
+    "licenses": [
+        {
+            "type": "BSD-3-Clause",
+            "url": "http://www.silverstripe.org/bsd-license/"
+        }
+    ]
+}

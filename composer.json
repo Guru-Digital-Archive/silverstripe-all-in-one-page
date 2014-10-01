@@ -1,0 +1,24 @@
+{
+    "name": "gdmedia/silverstripe-all-in-one-page",
+    "description": "Create a single page scrolling site by appending many individual pages",
+    "type": "silverstripe-module",
+    "homepage": "https://github.com/guru-digital/silverstripe-all-in-one-page",
+    "keywords": ["silverstripe"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Corey Sewell - Guru Digital Media",
+            "email": "corey@gdmedia.tv"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/guru-digital/silverstripe-all-in-one-page/issues"
+    },
+    "require": {
+        "silverstripe/cms": ">=3.0.1,<3.2",
+        "composer/installers": "*"
+    },
+    "extra": {
+        "installer-name": "silverstripe-all-in-one-page"
+    }
+}
