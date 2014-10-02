@@ -63,7 +63,6 @@
                 e.preventDefault();
                 $pageEl.scrollTo();
             }
-            e.preventDefault();
         });
         $(".back-to-top a").click(function (e) {
             e.preventDefault();
