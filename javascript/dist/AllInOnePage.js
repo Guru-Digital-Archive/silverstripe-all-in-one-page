@@ -126,7 +126,7 @@ function _hashSearch() {
         });
         $(".back-to-top a").click(function (e) {
             e.preventDefault();
-            $("body").animate({scrollTop: 0}, settings.scrollTime, settings.scrollEaseEffect, function () {
+            $("body,html").animate({scrollTop: 0}, settings.scrollTime, settings.scrollEaseEffect, function () {
                 setTimeout(function () {
                     scroller.isScrolling = false;
                 }, scroller.scrollStopTimeOut);
@@ -193,7 +193,7 @@ function _hashSearch() {
             scrollTo: function (delay) {
                 scroller.isScrolling = true;
                 delay = (delay !== undefined) ? delay : settings.scrollTime;
-                var $elToScroll = $("body").stop(), scrollTop = this.offset().top - settings.topOffset, callBack = function () {
+                var $elToScroll = $("body,html").stop(), scrollTop = this.offset().top - settings.topOffset, callBack = function () {
                     setTimeout(function () {
                         scroller.isScrolling = false;
                     }, scroller.scrollStopTimeOut);
