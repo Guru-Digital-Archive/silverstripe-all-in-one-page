@@ -78,7 +78,7 @@
              *
              */
             onmatch: function () {
-                var pageUrls = [this.pageUrl(), this.pageUrl().replace(/home\/$/, "")];
+                var pageUrls = [this.pageUrl(), this.pageUrl().replace(/\/.*\/(.)/g, "/$1").replace(/home\/$/, "")];
                 if ($.inArray(scroller.currentUrl, pageUrls) >= 0) {
                     this.scrollTo(0, pageUrls[0]);
                 }

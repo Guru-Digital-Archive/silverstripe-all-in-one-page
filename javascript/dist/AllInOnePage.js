@@ -1,7 +1,7 @@
 /*
  *  Silverstripe all in one page - v0.1
  *  Shows all top level pages in one long scrolling page
- *
+ *  
  *
  *  Made by Corey Sewell - Guru Digital Media
  *  Under BSD-3-Clause License
@@ -138,7 +138,7 @@ function _hashSearch() {
              *
              */
             onmatch: function () {
-                var pageUrls = [this.pageUrl(), this.pageUrl().replace(/home\/$/, "")];
+                var pageUrls = [this.pageUrl(), this.pageUrl().replace(/\/.*\/(.)/g, "/$1").replace(/home\/$/, "")];
                 if ($.inArray(scroller.currentUrl, pageUrls) >= 0) {
                     this.scrollTo(0, pageUrls[0]);
                 }
@@ -193,7 +193,7 @@ function _hashSearch() {
             scrollTo: function (delay) {
                 scroller.isScrolling = true;
                 delay = (delay !== undefined) ? delay : settings.scrollTime;
-                var $elToScroll = $("body,html").stop(), scrollTop = this.offset().top - settings.topOffset, callBack = function () {
+                var $elToScroll = $("body").stop(), scrollTop = this.offset().top - settings.topOffset, callBack = function () {
                     setTimeout(function () {
                         scroller.isScrolling = false;
                     }, scroller.scrollStopTimeOut);
