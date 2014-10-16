@@ -94,9 +94,6 @@ function _hashSearch() {
         scrollTime: 1000
     }, $window = $(window), $document = $(document);
     $.entwine("ss.allInOnePage", function ($) {
-        console.log("window.location.href....=" + window.location.href.match(/.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/)[1]);
-        console.log("HashSearch.keyExists(\"url\")=" + HashSearch.keyExists("url"));
-        console.log("HashSearch.get(\"url\")=" + HashSearch.get("url"));
         var scroller = {
             /**
              * Is the page currently scrolling to a location ( prevents events from firing )
