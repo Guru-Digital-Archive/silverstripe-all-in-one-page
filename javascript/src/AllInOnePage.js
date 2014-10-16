@@ -49,7 +49,8 @@
             /**
              * Path of the current URL
              */
-            currentUrl: (HashSearch.keyExists("url")) ? HashSearch.get("url") : window.location.href.match(/.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/)[1]
+            currentUrl: (HashSearch.keyExists("url")) ? HashSearch.get("url") :
+                    (window.location.href.match(/.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/) == null ? "" : window.location.href.match(/.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/)[1])
         };
         /**
          * Bind to clicks of anchors. If the href of the click anchor matches a page segment, prevent default and scroll to it
