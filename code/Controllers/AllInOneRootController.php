@@ -11,9 +11,11 @@
  *
  * @author corey
  */
-class AllInOneRootController extends RootURLController {
+class AllInOneRootController extends RootURLController
+{
 
-    public function handleRequest(SS_HTTPRequest $request, DataModel $model = null) {
+    public function handleRequest(SS_HTTPRequest $request, DataModel $model = null)
+    {
         $action = $request->param('Action');
         $res    = parent::handleRequest($request, $model);
         if (!$action && AllInOneHelper::shouldProcess($request, $res->getStatusCode())) {
@@ -28,5 +30,4 @@ class AllInOneRootController extends RootURLController {
         }
         return $res;
     }
-
 }

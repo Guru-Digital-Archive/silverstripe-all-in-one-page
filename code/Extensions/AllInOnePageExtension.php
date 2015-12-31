@@ -1,12 +1,14 @@
 <?php
 
-class AllInOnePageExtension extends DataExtension {
+class AllInOnePageExtension extends DataExtension
+{
 
     /**
      * Returns the Layout template based on the current ClassName
      * @return {mixed} template to be rendered
      * */
-    public function GetLayoutTemplate() {
+    public function GetLayoutTemplate()
+    {
         $res = "";
         try {
             if (class_exists($this->owner->ClassName)) {
@@ -22,13 +24,11 @@ class AllInOnePageExtension extends DataExtension {
                 }
                 $res = $viewer->process($controller);
             }
-        }
-        catch (Exception $exc) {
-//            echo $exc->getTraceAsString();
+        } catch (Exception $exc) {
+            //            echo $exc->getTraceAsString();
         }
 
 
         return $res;
     }
-
 }
