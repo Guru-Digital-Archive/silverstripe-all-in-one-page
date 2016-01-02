@@ -3,14 +3,16 @@
 /**
  * Adds new global settings.
  */
-class AllInOnePageSiteConfig extends DataExtension {
+class AllInOnePageSiteConfig extends DataExtension
+{
 
     private static $DEFAULT_EXCLUDE_CALSSES = array('ErrorPage', 'AllInOnePage');
     private static $many_many               = array(
         'AllInOneExludedPages' => 'SiteTree'
     );
 
-    function updateCMSFields(FieldList $fields) {
+    public function updateCMSFields(FieldList $fields)
+    {
         $this->SetDefaultExlcuded();
         $ExludedPagesField = new TreeMultiselectField("AllInOneExludedPages", "Exluded Pages", "SiteTree");
         $ExludedPagesField->setDescription("Add any pages here you want to exclude from the allinone page view");
@@ -18,10 +20,10 @@ class AllInOnePageSiteConfig extends DataExtension {
         return $fields;
     }
 
-    public function SetDefaultExlcuded() {
+    public function SetDefaultExlcuded()
+    {
         foreach (SiteTree::get()->filter(array('ClassName' => self::$DEFAULT_EXCLUDE_CALSSES, "ID:not" => AllInOneHelper::excludedPageIds())) as $ExcludedPage) {
             $this->owner->AllInOneExludedPages()->Add($ExcludedPage);
         }
     }
-
 }

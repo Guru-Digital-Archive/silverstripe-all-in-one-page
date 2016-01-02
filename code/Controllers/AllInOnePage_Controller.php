@@ -1,8 +1,10 @@
 <?php
 
-class AllInOnePage_Controller extends Page_Controller {
+class AllInOnePage_Controller extends Page_Controller
+{
 
-    public function GetRootPages() {
+    public function GetRootPages()
+    {
         $controllers = new ArrayList();
         $pageModels  = Page::get()->filter(array(
             "ParentId" => 0,
@@ -14,5 +16,4 @@ class AllInOnePage_Controller extends Page_Controller {
 
         return $controllers;
     }
-
 }

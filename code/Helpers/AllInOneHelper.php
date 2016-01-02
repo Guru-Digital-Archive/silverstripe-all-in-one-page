@@ -11,9 +11,11 @@
  *
  * @author corey
  */
-class AllInOneHelper {
+class AllInOneHelper
+{
 
-    public static function shouldProcess(\SS_HTTPRequest $request, int $httpStatus) {
+    public static function shouldProcess(\SS_HTTPRequest $request, int $httpStatus)
+    {
         $action    = $request->param('Action');
         $isEditing = false;
         if (class_exists("FrontendEditing")) {
@@ -33,11 +35,13 @@ class AllInOneHelper {
                 (is_null($action) || $action == "Index");
     }
 
-    public static function excludedPages() {
+    public static function excludedPages()
+    {
         return SiteConfig::current_site_config()->AllInOneExludedPages();
     }
 
-    public static function excludedPageIds() {
+    public static function excludedPageIds()
+    {
         $excludedIds = array();
         foreach (self::excludedPages() as $ExcludedPage) {
             $excludedIds[] = $ExcludedPage->ID;
@@ -45,7 +49,8 @@ class AllInOneHelper {
         return $excludedIds;
     }
 
-    public static function isPageIdExluded($PageId) {
+    public static function isPageIdExluded($PageId)
+    {
         return in_array($PageId, self::excludedPageIds());
     }
 
@@ -58,7 +63,8 @@ class AllInOneHelper {
      * @link http://www.beautifulcoding.com/snippets/178/a-simple-php-bot-checker-are-you-human/
      * @return boolean
      */
-    public static function isRequsetBot(\SS_HTTPRequest $request) {
+    public static function isRequsetBot(\SS_HTTPRequest $request)
+    {
         $bots   = Config::inst()->get('AllInOnePage', 'Bots');
         $result = $request->getVar("mockBot") == "true";
         if (!$result) {
@@ -72,5 +78,4 @@ class AllInOneHelper {
 //        echo '<pre class="debug"> "$result"' . PHP_EOL . print_r($result ? "yes" : "no", true) . PHP_EOL . '</pre>';
         return $result || $request->getVar("mockBot") == "true";
     }
-
 }

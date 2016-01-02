@@ -1,8 +1,10 @@
 <?php
 
-class AllInOneModelAsController extends ModelAsController {
+class AllInOneModelAsController extends ModelAsController
+{
 
-    public function handleRequest(SS_HTTPRequest $request, DataModel $model) {
+    public function handleRequest(SS_HTTPRequest $request, DataModel $model)
+    {
         $action = $request->param('Action');
         $result = parent::handleRequest($request, $model);
         if (!$action && AllInOneHelper::shouldProcess($request, $result->getStatusCode())) {
@@ -10,7 +12,6 @@ class AllInOneModelAsController extends ModelAsController {
             $parentId       = intval($realController->ParentID);
             $currentPageId  = intval($realController->ID);
             if ($parentId === 0 && !AllInOneHelper::isPageIdExluded($currentPageId)) {
-
                 $jsMin = (Director::isDev()) ? "" : ".min";
                 Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery' . $jsMin . '.js');
                 Requirements::javascript(THIRDPARTY_DIR . '/jquery-ui/jquery-ui' . $jsMin . '.js');
@@ -26,5 +27,4 @@ class AllInOneModelAsController extends ModelAsController {
         }
         return $result;
     }
-
 }
