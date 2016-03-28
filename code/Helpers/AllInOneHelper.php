@@ -14,7 +14,7 @@
 class AllInOneHelper
 {
 
-    public static function shouldProcess(\SS_HTTPRequest $request, int $httpStatus)
+    public static function shouldProcess(\SS_HTTPRequest $request, $httpStatus)
     {
         $action    = $request->param('Action');
         $isEditing = false;
