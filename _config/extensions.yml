@@ -11,7 +11,8 @@ SiteTree:
 Name: modelascontrollerroutes
 After: cms/routes#modelascontrollerroutes
 ---
-Director:
-    rules:
-        '': 'AllInOneRootController'
-        '$URLSegment//$Action/$ID/$OtherID': 'AllInOneModelAsController'
+Injector:
+    ModelAsController:
+        class: AllInOneModelAsController
+    RootURLController:
+        class: AllInOneRootController
