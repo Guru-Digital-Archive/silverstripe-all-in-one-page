@@ -6,7 +6,7 @@
 class AllInOnePageSiteConfig extends DataExtension
 {
 
-    private static $DEFAULT_EXCLUDE_CALSSES = array('ErrorPage', 'AllInOnePage');
+    private static $DEFAULT_EXCLUDE_CLASSES = array();
     private static $many_many               = array(
         'AllInOneExludedPages' => 'SiteTree'
     );
@@ -22,7 +22,8 @@ class AllInOnePageSiteConfig extends DataExtension
 
     public function SetDefaultExlcuded()
     {
-        foreach (SiteTree::get()->filter(array('ClassName' => self::$DEFAULT_EXCLUDE_CALSSES, "ID:not" => AllInOneHelper::excludedPageIds())) as $ExcludedPage) {
+        $excludedClasses = Config::inst()->get('SiteConfig', 'DEFAULT_EXCLUDE_CLASSES');
+        foreach (SiteTree::get()->filter(array('ClassName' => $excludedClasses, "ID:not" => AllInOneHelper::excludedPageIds())) as $ExcludedPage) {
             $this->owner->AllInOneExludedPages()->Add($ExcludedPage);
         }
     }
